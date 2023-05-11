@@ -9,7 +9,7 @@ import com.spring.jdbc.entities.Student;
 
 public class App {
 	public static void main(String[] args) {
-		System.out.println("Hello World!");
+		System.out.println("Spring JDBC");
 
 		ApplicationContext context = new ClassPathXmlApplicationContext("com/spring/jdbc/config.xml");
 
@@ -24,7 +24,7 @@ public class App {
 		/*
 		 * For Insert
 		 */
-		
+
 		// student.setId(201);
 		// student.setName("XXX");
 		// student.setCity("Delhi");
@@ -43,6 +43,13 @@ public class App {
 		student.setCity("Ahmedabad");
 		int updateStudent = studentDao.updateStudent(student);
 		System.out.println(updateStudent + " record updated successfully.");
+
+		/*
+		 * For delete
+		 */
+
+//		int delete = studentDao.delete(2);
+//		System.out.println(delete + " record deleted successfully.");
 
 	}
 }
