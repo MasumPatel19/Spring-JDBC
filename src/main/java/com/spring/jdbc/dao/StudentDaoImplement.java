@@ -1,6 +1,9 @@
 package com.spring.jdbc.dao;
 
+import java.util.List;
+
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 
 import com.spring.jdbc.entities.Student;
 
@@ -32,6 +35,19 @@ public class StudentDaoImplement implements StudentDao {
 		String query = "delete from student where id=?";
 		int res = jdbcTemplate.update(query, studentId);
 		return res;
+	}
+
+	public Student getStudent(int studentId) {
+		String query = "select * from student where id=?";
+		RowMapper<Student> rowMapper = new RowMapperImplementation();
+		Student student = jdbcTemplate.queryForObject(query, rowMapper, studentId);
+		return student;
+	}
+
+	public List<Student> getAllStudent() {
+		String query = "select * from student";
+		List<Student> getStudents = jdbcTemplate.query(query, new RowMapperImplementation());
+		return getStudents;
 	}
 
 }

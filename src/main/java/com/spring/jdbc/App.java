@@ -1,5 +1,7 @@
 package com.spring.jdbc;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -38,11 +40,11 @@ public class App {
 		 * For update
 		 */
 
-		student.setId(201);
-		student.setName("YYY");
-		student.setCity("Ahmedabad");
-		int updateStudent = studentDao.updateStudent(student);
-		System.out.println(updateStudent + " record updated successfully.");
+//		student.setId(201);
+//		student.setName("YYY");
+//		student.setCity("Ahmedabad");
+//		int updateStudent = studentDao.updateStudent(student);
+//		System.out.println(updateStudent + " record updated successfully.");
 
 		/*
 		 * For delete
@@ -50,6 +52,23 @@ public class App {
 
 //		int delete = studentDao.delete(2);
 //		System.out.println(delete + " record deleted successfully.");
+
+		/*
+		 * For Select
+		 */
+
+//		Student getStudentData = studentDao.getStudent(101);
+//		System.out.println(getStudentData);
+
+		
+		/*
+		 * For All data
+		 */
+
+		List<Student> gettAllStudent = studentDao.getAllStudent();
+		for (Student studs : gettAllStudent) {
+			System.out.println(studs);
+		}
 
 	}
 }
